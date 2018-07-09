@@ -1,6 +1,7 @@
 package org.launchcode.controllers;
 
 import org.launchcode.models.Cheese;
+import org.launchcode.models.forms.AddMenuItemForm;
 import org.springframework.web.bind.annotation.*;
 import org.launchcode.models.Menu;
 import org.launchcode.models.data.CheeseDao;
@@ -69,7 +70,7 @@ public class MenuController {
     @RequestMapping(value="add-item", method=RequestMethod.POST)
     public String addItem(Model model, @ModelAttribute @Valid AddMenuItemForm form, Errors errors) {
         if (errors.hasErrors()) {
-            model.addAtrribute("form", form);
+            model.addAttribute("form", form);
             return "menu/add-item";
         }
         Cheese theCheese = cheeseDao.findOne(form.getCheeseId());
