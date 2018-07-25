@@ -34,12 +34,12 @@ public class CategoryController {
         return "category/add";
     }
     @RequestMapping (value = "add", method = RequestMethod.POST)
-    public String addCheeseForm (Model model, @ModelAttribute @Valid Category newCategory,Errors errors){
+    public String add (Model model, @ModelAttribute @Valid Category category,Errors errors){
         if (errors.hasErrors()) {
             model.addAttribute("title", "Add Category");
             return "category/add";
         }
-        categoryDao.save(newCategory);
+        categoryDao.save(new Category());
         return "redirect:";
 
     }
