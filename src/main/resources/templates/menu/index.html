@@ -5,7 +5,7 @@
 <body class="container">
     <h1 th:text="${title}">Default Title></h1>
     <nav th:replace="fragments :: navigation"></nav>
-    <p th:unless="${menus} and$ ${menus.size()}">No Menus</p>
+    <p th:unless="${menus} and ${menus.size()}">No Menus</p>
 <table class="table">
     <tr>
         <th>Menus</th>
